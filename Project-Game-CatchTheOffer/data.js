@@ -1,15 +1,23 @@
+import { settingsData } from './ui/game/settings-panel/settings-data.js'
+
+export const STATUSES = {
+	IN_PROGRESS: 'in_progress',
+	PAUSE: 'pause',
+	SETTINGS: 'settings',
+	WIN: 'win',
+	LOSE: 'lose',
+}
+
 export const data = {
 	catchPoints: 0, // or score
 	missPoints: 0,
-	winPoints: 5,
-	win: false,
-	losePoints: 3,
-	lose: false,
-	//status:,
+	winPoints: settingsData.points_to_win,
+	losePoints: settingsData.points_to_lose[5],
+	status: STATUSES.SETTINGS,
 	x: 0,
 	y: 0,
-	rowsCount: 3,
-	columnsCount: 3,
+	rowsCount: settingsData.grid_size['3x3'],
+	columnsCount: settingsData.grid_size['3x3'],
 	missedOffer: null,
 	catchOffer: null,
 }
@@ -46,7 +54,7 @@ export function catchOffer() {
 	data.catchPoints++
 
 	if (data.catchPoints === data.winPoints) {
-		data.win = true
+		data.status = STATUSES.WIN
 		clearInterval(offerJumpIntervalId)
 	} else {
 		setCaughtOffer(data.x, data.y)
@@ -64,8 +72,7 @@ export function catchOffer() {
 export function restart() {
 	data.catchPoints = 0
 	data.missPoints = 0
-	data.win = false
-	data.lose = false
+	data.status = STATUSES.IN_PROGRESS
 	changeOfferCoordinates()
 	// data.x = 0
 	// data.y = 0
@@ -77,7 +84,7 @@ function missOffer() {
 	data.missPoints++
 
 	if (data.missPoints === data.losePoints) {
-		data.lose = true
+		data.status = STATUSES.LOSE
 		clearInterval(offerJumpIntervalId)
 	} else {
 		setMissedOffer(data.x, data.y)
