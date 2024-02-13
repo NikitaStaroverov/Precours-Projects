@@ -8,3 +8,11 @@ export function RestartButton() {
 	})
 	return element
 }
+export function StartButton() {
+	const element = document.createElement('button')
+	element.innerHTML = 'Start Game'
+	element.addEventListener('click', () => {
+		restart()
+	})
+	return element
+}

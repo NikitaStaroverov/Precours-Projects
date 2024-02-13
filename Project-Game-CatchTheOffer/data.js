@@ -1,4 +1,4 @@
-import { settingsData } from './ui/game/settings-panel/settings-data.js'
+import { settingsData } from './settings-data.js'
 
 export const STATUSES = {
 	IN_PROGRESS: 'in_progress',
@@ -11,13 +11,13 @@ export const STATUSES = {
 export const data = {
 	catchPoints: 0, // or score
 	missPoints: 0,
-	winPoints: settingsData.points_to_win,
-	losePoints: settingsData.points_to_lose[5],
+	winPoints: settingsData.points_to_win[0],
+	losePoints: settingsData.points_to_lose[0],
 	status: STATUSES.SETTINGS,
 	x: 0,
 	y: 0,
-	rowsCount: settingsData.grid_size['3x3'],
-	columnsCount: settingsData.grid_size['3x3'],
+	rowsCount: settingsData.grid_size[0],
+	columnsCount: settingsData.grid_size[0],
 	missedOffer: null,
 	catchOffer: null,
 }
@@ -47,7 +47,7 @@ function runOfferJumpInterval() {
 	clearInterval(offerJumpIntervalId)
 	offerJumpIntervalId = setInterval(missOffer, 2000)
 }
-runOfferJumpInterval()
+//runOfferJumpInterval()
 
 //ловим оффер
 export function catchOffer() {
@@ -74,8 +74,6 @@ export function restart() {
 	data.missPoints = 0
 	data.status = STATUSES.IN_PROGRESS
 	changeOfferCoordinates()
-	// data.x = 0
-	// data.y = 0
 	runOfferJumpInterval()
 	listener()
 }
