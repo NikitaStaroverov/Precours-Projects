@@ -1,7 +1,12 @@
+import { createElement } from '../../../../helper.js'
 import { settingsData } from '../../../../settings-data.js'
 
 export function SelectPointsToWin(element) {
-	const selectElement = document.createElement('select')
+	const selectElement = createElement(
+		'select',
+		['select-settings'],
+		'points-to-win'
+	)
 
 	// Получаем массив значений из settingsData.points_to_lose
 	const pointsToWinValues = settingsData.points_to_win
