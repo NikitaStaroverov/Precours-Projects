@@ -2,8 +2,8 @@ import { restart } from '../../../data.js'
 import { createElement } from '../../../helper.js'
 
 export function RestartButton() {
-	const element = document.createElement('button')
-	element.innerHTML = 'Restart'
+	const element = createElement('button', ['start-button'], 'game-start-button')
+	element.innerHTML = 'Play again'
 	element.addEventListener('click', () => {
 		restart()
 	})

@@ -1,9 +1,30 @@
+/* сброс стилей */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+	margin: 0;
+}
+
+/* фон */
 .app {
-	display: flex;
+	/* display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center; */
 	width: 100%;
 	height: 100vh;
+	background: url('./assets/images/background.svg');
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
 	background: radial-gradient(
 		269.02% 186.27% at 96.21% 166.59%,
 		#4ca1d2 0%,
@@ -11,13 +32,18 @@
 	);
 }
 
+.appWrapper {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+}
+
 /* кнопки */
 .start-button {
-	display: inline-flex;
+	align-self: center;
 	padding: 12px 36px;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
 	border-radius: 30px;
 	background: #b0c255;
 	box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
@@ -31,12 +57,17 @@
 }
 
 /* панель настроек */
-.select-settings {
+.settingsBar {
 	display: flex;
+	/* justify-self: flex-start; */
+	justify-content: space-around; /*space-around */
+	column-gap: 12px;
+	padding: 24px 64px;
+}
+
+.select-settings {
+	width: 100%;
 	padding: 6px 12px;
-	justify-content: space-between;
-	align-items: flex-start;
-	align-self: stretch;
 	border-radius: 30px;
 	border: 1px solid #3c82c2;
 	color: #fff;
@@ -45,9 +76,5 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 24px; /* 150% */
-	background-color: transparent;
-}
-
-.option-settings {
 	background-color: transparent;
 }

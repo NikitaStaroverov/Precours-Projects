@@ -1,7 +1,7 @@
 import { createElement } from '../../../../helper.js'
 import { settingsData } from '../../../../settings-data.js'
 
-export function SelectPointsToWin(element) {
+export function SelectPointsToWin(settingsBar) {
 	const selectElement = createElement(
 		'select',
 		['select-settings'],
@@ -23,5 +23,5 @@ export function SelectPointsToWin(element) {
 		selectElement.append(option)
 	})
 
-	element.append(selectElement)
+	settingsBar.append(selectElement)
 }

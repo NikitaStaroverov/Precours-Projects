@@ -1,0 +1,127 @@
+body {
+	background-color: #3676bc;
+}
+
+.container {
+	position: relative;
+	width: fit-content;
+	margin: auto;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 144px;
+	height: 144px; /* чтобы оверлей был по высоте родительского контейнера */
+	text-align: center; /* чтобы центрировать текст внутри */
+	z-index: 1; /* значением z-index выше, чем у изображения */
+}
+
+.img1 {
+	width: 144px;
+	height: 144px;
+	fill: #3472ba;
+	stroke-width: 10px;
+	stroke: #fff;
+}
+
+.img2 {
+	padding-top: 24.5px;
+}
+
+.container2 {
+	position: relative;
+}
+
+.overlay2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 427.005px; /* чтобы оверлей был по высоте родительского контейнера */
+	text-align: center; /* чтобы центрировать текст внутри */
+	z-index: 1; /* значением z-index выше, чем у изображения */
+}
+
+h2 {
+	margin: 0;
+	padding-top: 71px;
+	color: #3676bc;
+	font-family: Roboto;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 60px; /* 125% */
+}
+
+h4 {
+	margin: 0;
+	padding: 4px 0 12px;
+	color: #3676bc;
+	font-family: Roboto;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 133.333% */
+}
+
+button {
+	margin-top: 20px;
+	padding: 12px 36px;
+	border-radius: 30px;
+	background: #b0c255;
+	box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
+		0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+
+	color: #fff;
+	font-family: Roboto;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 100% */
+}
+
+.text1 {
+	padding: 12px 24px 12px 31px;
+	display: inline-block;
+	margin: 0;
+	width: 85px;
+	color: #3676bc;
+	text-align: right;
+	font-family: Roboto;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 100% */
+	text-align: right;
+}
+
+.text {
+	padding: 12px 31px 12px 24px;
+	display: inline-block;
+	margin: 0;
+	width: 85px;
+	color: #3676bc;
+	font-family: Roboto;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 133.333% */
+	text-align: left;
+}
+
+.container3 {
+	position: relative;
+	width: 300px;
+	height: 500.005px;
+}
+
+.overlay3 {
+	position: absolute;
+	top: 83px;
+	left: 0;
+	width: 300px;
+	height: 427.005px; /* чтобы оверлей был по высоте родительского контейнера */
+	text-align: center; /* чтобы центрировать текст внутри */
+}

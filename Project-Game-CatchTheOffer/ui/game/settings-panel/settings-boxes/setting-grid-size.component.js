@@ -1,7 +1,7 @@
 import { createElement } from '../../../../helper.js'
 import { settingsData } from '../../../../settings-data.js'
 
-export function SelectGridSize(element) {
+export function SelectGridSize(settingsBar) {
 	const selectElement = createElement(
 		'select',
 		['select-settings'],
@@ -23,5 +23,5 @@ export function SelectGridSize(element) {
 		selectElement.append(option)
 	})
 
-	element.append(selectElement)
+	settingsBar.append(selectElement)
 }

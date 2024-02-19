@@ -1,4 +1,5 @@
-import { data, subscribe } from './data.js'
+import { STATUSES, data, subscribe } from './data.js'
+import { StartButton } from './ui/game/buttons/RestartButton.js'
 import { Game } from './ui/game/game.component.js'
 import { SettingsPanel } from './ui/game/settings-panel/settings-panel.component.js'
 import { Lose } from './ui/game/win and lose/lose.component.js'
@@ -26,6 +27,11 @@ function renderApp() {
 			const settings = SettingsPanel()
 			appElement.append(settings)
 			break
+	}
+
+	if (data.status === STATUSES.SETTINGS) {
+		const startButton = StartButton()
+		appElement.append(startButton)
 	}
 }
 renderApp()
