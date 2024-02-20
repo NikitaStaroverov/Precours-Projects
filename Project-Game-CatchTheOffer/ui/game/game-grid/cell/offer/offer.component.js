@@ -3,7 +3,7 @@ import { catchOffer } from '../../../../../data.js'
 export function Offer() {
 	const element = document.createElement('img')
 
-	element.src = './assets/images/Default.svg'
+	element.src = './assets/images/offerImg/Default.svg'
 
 	function clickHandler() {
 		catchOffer()
@@ -15,7 +15,7 @@ export function Offer() {
 export function CaughtOffer() {
 	const element = document.createElement('img')
 
-	element.src = './assets/images/Offer_Catch.svg'
+	element.src = './assets/images/offerImg/Offer_Catch.svg'
 
 	return element
 }
@@ -23,7 +23,7 @@ export function CaughtOffer() {
 export function MissedOffer() {
 	const element = document.createElement('img')
 
-	element.src = './assets/images/Offer_miss.svg'
+	element.src = './assets/images/offerImg/Offer_miss.svg'
 
 	return element
 }
