@@ -1,9 +1,24 @@
 import { data } from '../../../data.js'
+import { createElement } from '../../../helper.js'
 
 export function ScoreBlock() {
-	const element = document.createElement('div')
+	const scoreBlock = createElement('div', ['scoreBlock'], '')
 
-	element.append(`Catch: ${data.catchPoints}; Miss: ${data.missPoints}`)
+	const catchItem = createElement('div', ['wrapCount'], '')
+	const Catch = createElement('p', ['textCount'], '')
+	Catch.append('Catch:')
+	const catchScore = createElement('p', ['count'], '')
+	catchScore.append(`${data.catchPoints}`)
+	catchItem.append(Catch, catchScore)
 
-	return element
+	const missItem = createElement('div', ['wrapCount'], '')
+	const Miss = createElement('p', ['textCount'], '')
+	Miss.append('Miss:')
+	const missScore = createElement('p', ['count'], '')
+	missScore.append(`${data.missPoints}`)
+	missItem.append(Miss, missScore)
+
+	scoreBlock.append(catchItem, missItem)
+
+	return scoreBlock
 }
