@@ -54,9 +54,7 @@
 .title {
 	padding-top: 80px;
 	color: #3676bc;
-	font-family: Roboto;
 	font-size: 48px;
-	font-style: normal;
 	font-weight: 600;
 	line-height: 60px; /* 125% */
 }
@@ -64,9 +62,7 @@
 .subtitle {
 	padding: 4px 0 12px;
 	color: #3676bc;
-	font-family: Roboto;
 	font-size: 18px;
-	font-style: normal;
 	font-weight: 400;
 	line-height: 24px; /* 133.333% */
 }
@@ -80,9 +76,7 @@ p {
 }
 .name {
 	color: #3676bc;
-	font-family: Roboto;
 	font-size: 18px;
-	font-style: normal;
 	font-weight: 400;
 	line-height: 24px; /* 133.333% */
 	text-align: left;
@@ -92,9 +86,7 @@ p {
 
 .score {
 	color: #3676bc;
-	font-family: Roboto;
 	font-size: 24px;
-	font-style: normal;
 	font-weight: 500;
 	line-height: 24px; /* 100% */
 	text-align: right;
