@@ -1,5 +1,5 @@
-import { createElement } from '../../../../helper.js'
 import { settingsData } from '../../../../settings-data.js'
+import { createElement } from '../../../../ui-kit/helper.js'
 
 export function SelectPointsToWin(settingsBar) {
 	const selectElement = createElement(

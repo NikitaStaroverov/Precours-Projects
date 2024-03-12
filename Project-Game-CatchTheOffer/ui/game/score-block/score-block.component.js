@@ -1,5 +1,5 @@
 import { data } from '../../../data.js'
-import { createElement } from '../../../helper.js'
+import { createElement } from '../../../ui-kit/helper.js'
 
 export function ScoreBlock() {
 	const scoreBlock = createElement('div', ['scoreBlock'], '')

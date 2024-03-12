@@ -1,5 +1,5 @@
 import { restart } from '../../../data.js'
-import { createElement } from '../../../helper.js'
+import { createElement } from '../../../ui-kit/helper.js'
 
 export function RestartButton() {
 	const element = createElement(
