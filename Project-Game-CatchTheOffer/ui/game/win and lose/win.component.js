@@ -16,14 +16,14 @@ export function Win() {
 	)
 
 	const secondOverlay = createElement('div', ['secondOverlay'], '')
-	const groupImg = Image(
+	const WinImg = Image(
 		'img',
-		['group'],
+		['Win'],
 		'img2',
-		'./assets/images/win_and_lose_img/group.svg'
+		'./assets/images/win_and_lose_img/Win.svg'
 	)
 
-	secondOverlay.append(groupImg)
+	secondOverlay.append(WinImg)
 	secondContainer.append(ellipseImg, secondOverlay)
 
 	const firstOverlay = createElement('div', ['firstOverlay'], '')
@@ -33,7 +33,7 @@ export function Win() {
 		'img',
 		['subtract'],
 		'img3',
-		'./assets/images/win_and_lose_img/Subtract.png'
+		'./assets/images/win_and_lose_img/subtract.svg'
 	)
 
 	const thirdOverlay = createElement('div', ['thirdOverlay'], '')

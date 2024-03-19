@@ -1,0 +1,30 @@
+.scoreBlock {
+	padding: 12px 36px;
+	align-self: center;
+	display: inline-flex;
+	align-items: flex-start;
+	gap: 107px;
+	border-radius: 30px;
+	background: #528cde;
+	box-shadow: 0px 4px 8px 0px rgba(88, 150, 238, 0.3);
+}
+
+.wrapCount {
+	display: flex;
+	align-items: flex-start;
+	gap: 36px;
+}
+
+.textCount {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.count {
+	color: #fff;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 24px;
+}

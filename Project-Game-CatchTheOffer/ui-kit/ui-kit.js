@@ -1,7 +1,7 @@
-import { createElement } from './helper.js'
-
 export function Image(tagName, classes = [], id = '', src) {
-	const image = createElement(tagName, (classes = []), (id = ''))
+	const image = document.createElement(tagName)
+	image.classList.add(...classes)
+	image.id = id
 	image.src = src
 	return image
 }

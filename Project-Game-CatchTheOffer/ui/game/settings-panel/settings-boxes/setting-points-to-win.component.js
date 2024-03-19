@@ -1,4 +1,4 @@
-import { settingsData } from '../../../../settings-data.js'
+import { settingsData, updateWinPoints, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
 export function SelectPointsToWin(settingsBar) {
@@ -9,18 +9,25 @@ export function SelectPointsToWin(settingsBar) {
 	)
 
 	// Получаем массив значений из settingsData.points_to_lose
-	const pointsToWinValues = settingsData.points_to_win
+	const pointsToLoseValues = settingsData.points_to_win
+	const selectedWinPointsValues = data.settings
 
-	// Проходимся по каждому значению в массиве
-	pointsToWinValues.forEach(value => {
-		// Создаем новый элемент option
-		const option = document.createElement('option')
-		// Задаем значение (value) элементу option равным элементу из массива
-		option.value = value
-		// Задаем текст внутри option равным значению элемента из массива
-		option.text = `${value} pts`
-		// Добавляем option в select
+	pointsToLoseValues.forEach((points, index) => {
+		const option = createElement('option', ['option-settings'], 'option')
+
+		option.value = index
+		option.text = `${points} pts`
+
+		const isOptionSelected = selectedWinPointsValues.winPoints === points
+		option.selected = isOptionSelected
+
 		selectElement.append(option)
+	})
+
+	selectElement.addEventListener('change', function (e) {
+		let selectedIndex = e.currentTarget.value
+		const points = settingsData.points_to_win[selectedIndex]
+		updateWinPoints(points)
 	})
 
 	settingsBar.append(selectElement)

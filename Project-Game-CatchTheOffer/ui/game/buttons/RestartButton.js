@@ -1,4 +1,4 @@
-import { restart } from '../../../data.js'
+import { STATUSES, data, restart, start } from '../../../data.js'
 import { createElement } from '../../../ui-kit/helper.js'
 
 export function RestartButton() {
@@ -9,7 +9,11 @@ export function RestartButton() {
 	)
 	element.innerHTML = 'Play again'
 	element.addEventListener('click', () => {
-		restart()
+		if (data.status === STATUSES.WIN) {
+			restart()
+		} else {
+			start()
+		}
 	})
 	return element
 }
@@ -21,7 +25,7 @@ export function StartButton() {
 	)
 	element.innerHTML = 'START GAME'
 	element.addEventListener('click', () => {
-		restart()
+		start()
 	})
 	return element
 }

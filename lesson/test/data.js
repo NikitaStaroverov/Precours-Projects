@@ -1,18 +1,25 @@
 export const settingsData = {
-	grid_size: [3, 4, 5, 6, 7, 8],
+	grid_size: [
+		{ h: 3, w: 3 },
+		{ h: 4, w: 4 },
+		{ h: 5, w: 5 },
+		{ h: 6, w: 6 },
+		{ h: 7, w: 7 },
+		{ h: 8, w: 8 },
+	],
 	points_to_win: [20, 30, 40, 60, 80, 100],
 	points_to_lose: [3, 5, 7, 9, 11, 13],
 }
 
-export const data = {
+export let data = {
 	scores: {
 		catchesCount: 0,
 		missesCount: 0,
 	},
 	settings: {
 		gridSize: {
-			columnsCount: settingsData.grid_size[0],
-			rowsCount: settingsData.grid_size[0],
+			columnsCount: settingsData.grid_size[0].h,
+			rowsCount: settingsData.grid_size[0].w,
 		},
 	},
 	coords: {
@@ -27,43 +34,9 @@ export function subscribe(observer) {
 	subscriber = observer
 }
 
-function getRandomInt(N) {
-	return Math.floor(Math.random() * N)
-}
-
-function jumpOfferToRandomPosition() {
-	let newX, newY
-	do {
-		newX = getRandomInt(data.settings.gridSize.columnsCount)
-		newY = getRandomInt(data.settings.gridSize.rowsCount)
-	} while (data.coords.x === newX && data.coords.y === newY)
-
-	data.coords.x = newX
-	data.coords.y = newY
-
+export function updateGridSize(newX, newY) {
+	data.settings.gridSize.columnsCount = newX
+	data.settings.gridSize.rowsCount = newY
+	console.log(data.settings.gridSize)
 	subscriber()
 }
-
-// export function updateGridSize(value) {
-// 	data.settings.gridSize.columnsCount = value
-// 	data.settings.gridSize.rowsCount = value
-// 	subscriber()
-// }
-
-// element.addEventListener('click', ()=>{
-//   catchOffer()
-// })
-function missOffer() {
-	jumpOfferToRandomPosition()
-
-	subscriber()
-}
-
-let jumpIntervalId
-
-// function runJumpINterval() {
-// 	jumpIntervalId = setInterval(() => {
-// 		missOffer()
-// 	}, 2000)
-// }
-// runJumpINterval()

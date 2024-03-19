@@ -1,0 +1,38 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #3f76e5;
+}
+
+.switcher {
+	position: relative;
+	width: 36px;
+	height: 22px;
+	border-radius: 360px;
+	border: 1px solid #3c82c2;
+	appearance: none;
+	transition: 0.4s;
+	background-color: transparent;
+}
+
+/* .switcher:checked {
+	background: #f8f8f8;
+} */
+
+.switcher::before {
+	content: url(./icon.svg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 0.4s;
+	background-color: transparent;
+}
+
+.switcher:checked::before {
+	left: 14px;
+	content: url(./icon_On.svg);
+	position: absolute;
+	background-color: transparent;
+}

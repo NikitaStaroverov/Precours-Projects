@@ -4,10 +4,10 @@ import { Cell } from './cell/cell.component.js'
 export function GameGrid() {
 	const gridElement = document.createElement('table')
 
-	for (let y = 0; y < data.rowsCount; y++) {
+	for (let y = 0; y < data.settings.gridSize.rowsCount; y++) {
 		const rowElement = document.createElement('tr')
 
-		for (let x = 0; x < data.columnsCount; x++) {
+		for (let x = 0; x < data.settings.gridSize.columnsCount; x++) {
 			const cellElement = Cell(x, y)
 			rowElement.append(cellElement)
 		}

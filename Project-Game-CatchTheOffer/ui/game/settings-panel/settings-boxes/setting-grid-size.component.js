@@ -1,4 +1,4 @@
-import { settingsData } from '../../../../settings-data.js'
+import { settingsData, updateGridSize, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
 export function SelectGridSize(settingsBar) {
@@ -10,17 +10,26 @@ export function SelectGridSize(settingsBar) {
 
 	// Получаем массив значений из settingsData.points_to_lose
 	const gridSizeValues = settingsData.grid_size
+	const selectedGridSizeValues = data.settings.gridSize
 
-	// Проходимся по каждому значению в массиве
-	gridSizeValues.forEach(value => {
-		// Создаем новый элемент option
+	gridSizeValues.forEach((size, index) => {
 		const option = createElement('option', ['option-settings'], 'option')
-		// Задаем значение (value) элементу option равным элементу из массива
-		option.value = value
-		// Задаем текст внутри option равным значению элемента из массива
-		option.text = `${value}x${value}`
-		// Добавляем option в select
+
+		option.value = index
+		option.text = `${size.h}x${size.w}`
+
+		const isOptionSelected =
+			selectedGridSizeValues.rowsCount === size.h &&
+			selectedGridSizeValues.columnsCount === size.w
+		option.selected = isOptionSelected
+
 		selectElement.append(option)
+	})
+
+	selectElement.addEventListener('change', function (e) {
+		let selectedIndex = e.currentTarget.value
+		const size = settingsData.grid_size[selectedIndex]
+		updateGridSize(size.h, size.w)
 	})
 
 	settingsBar.append(selectElement)

@@ -1,4 +1,4 @@
-import { settingsData } from '../../../../settings-data.js'
+import { settingsData, updateLosePoints, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
 export function SelectPointsToLose(settingsBar) {
@@ -10,17 +10,24 @@ export function SelectPointsToLose(settingsBar) {
 
 	// Получаем массив значений из settingsData.points_to_lose
 	const pointsToLoseValues = settingsData.points_to_lose
+	const selectedLosePointsValues = data.settings
 
-	// Проходимся по каждому значению в массиве
-	pointsToLoseValues.forEach(value => {
-		// Создаем новый элемент option
-		const option = document.createElement('option')
-		// Задаем значение (value) элементу option равным элементу из массива
-		option.value = value
-		// Задаем текст внутри option равным значению элемента из массива
-		option.text = value
-		// Добавляем option в select
+	pointsToLoseValues.forEach((points, index) => {
+		const option = createElement('option', ['option-settings'], 'option')
+
+		option.value = index
+		option.text = `${points} pts`
+
+		const isOptionSelected = selectedLosePointsValues.losePoints === points
+		option.selected = isOptionSelected
+
 		selectElement.append(option)
+	})
+
+	selectElement.addEventListener('change', function (e) {
+		let selectedIndex = e.currentTarget.value
+		const points = settingsData.points_to_lose[selectedIndex]
+		updateLosePoints(points)
 	})
 
 	settingsBar.append(selectElement)

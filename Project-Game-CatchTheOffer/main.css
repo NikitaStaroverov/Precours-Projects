@@ -1,0 +1,157 @@
+/* сброс стилей */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+html {
+	font-family: Roboto;
+	font-style: normal;
+}
+
+/* фон */
+.app {
+	width: 100%;
+	height: 100vh;
+	background: url('./assets/images/background.svg');
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	background: radial-gradient(
+		269.02% 186.27% at 96.21% 166.59%,
+		#4ca1d2 0%,
+		#285bae 100%
+	);
+}
+
+.appWrapper {
+	position: relative;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* кнопки */
+.restart-button {
+	padding: 12px 36px;
+	border-radius: 30px;
+	background: #b0c255;
+	box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
+		0px 2px 4px 0px rgba(0, 0, 0, 0.06);
+	color: #fff;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 24px; /* 100% */
+}
+
+.start-game {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* панель настроек */
+.settingsBar {
+	align-self: normal;
+	position: relative;
+	display: inline-flex;
+	column-gap: 12px;
+	padding: 24px 64px 0;
+}
+
+.select-settings {
+	width: 100%;
+	padding: 6px 12px;
+	border-radius: 30px;
+	border: 1px solid #3c82c2;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px; /* 150% */
+	background-color: transparent;
+}
+
+/* muteMode */
+
+.div-switcher {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+}
+
+.switcher {
+	position: relative;
+	width: 36px;
+	height: 22px;
+	border-radius: 360px;
+	border: 1px solid #3c82c2;
+	appearance: none;
+	transition: 0.4s;
+	background-color: transparent;
+}
+
+/* .switcher:checked {
+	background: #f8f8f8;
+} */
+
+.switcher::before {
+	content: url(./assets/images/muteImg/icon_Off.svg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: 0.4s;
+	background-color: transparent;
+}
+
+.switcher:checked::before {
+	left: 14px;
+	content: url(./assets/images/muteImg/icon_On.svg);
+	position: absolute;
+	background-color: transparent;
+}
+
+/* игровая сетка */
+.gameBoard {
+	display: flex;
+	align-self: normal;
+	justify-content: center;
+	flex-direction: column;
+	row-gap: 36px;
+}
+
+table {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+}
+
+table tr {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+table td {
+	padding: 6px 7px 6px 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	width: 85px;
+	height: 85px;
+	border-radius: 5px;
+	border: 2px solid #54bae0;
+	background: #4580c4;
+}

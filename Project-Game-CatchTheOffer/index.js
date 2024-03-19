@@ -15,14 +15,17 @@ function renderApp() {
 			const win = Win()
 			appElement.append(win)
 			break
+
 		case 'lose':
 			const lose = Lose()
 			appElement.append(lose)
 			break
+
 		case 'in_progress':
 			const game = Game()
 			appElement.append(game)
 			break
+
 		case 'settings':
 			const settings = SettingsPanel()
 			appElement.append(settings)
