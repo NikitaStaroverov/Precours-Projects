@@ -10,6 +10,12 @@ html {
 	font-style: normal;
 }
 
+button {
+	border: none;
+	padding: 0;
+	background: none;
+}
+
 /* фон */
 .app {
 	width: 100%;
@@ -51,6 +57,7 @@ html {
 	font-size: 24px;
 	font-weight: 500;
 	line-height: 24px; /* 100% */
+	margin-top: 15px;
 }
 
 .start-game {

@@ -17,6 +17,7 @@ export function RestartButton() {
 	})
 	return element
 }
+
 export function StartButton() {
 	const element = createElement(
 		'button',

@@ -1,4 +1,4 @@
-import { settingsData, updateGridSize, data } from '../../../data.js'
+import { settingsData, data, updateGridSize } from '../../../data.js'
 
 export function Settings() {
 	const container = document.createElement('div')

@@ -37,6 +37,7 @@ function renderApp() {
 		appElement.append(startButton)
 	}
 }
+
 renderApp()
 
 subscribe(renderApp)

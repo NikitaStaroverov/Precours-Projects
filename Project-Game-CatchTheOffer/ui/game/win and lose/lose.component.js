@@ -57,9 +57,27 @@ export function Lose() {
 	missScore.append(`${data.missPoints}`)
 	missItem.append(Miss, missScore)
 
+	const gameTime = createElement('div', ['item'], '')
+	const Time = createElement('p', ['name'], '')
+	Time.append('Time:')
+	const timeReceived = createElement('p', ['score'], '')
+	timeReceived.append(
+		`${data.time.minutes < 10 ? '0' : ''}${data.time.minutes}m ${
+			data.time.seconds < 10 ? '0' : ''
+		}${data.time.seconds}s`
+	)
+	gameTime.append(Time, timeReceived)
+
 	const restartButton = RestartButton()
 
-	thirdOverlay.append(title, subtitle, catchItem, missItem, restartButton)
+	thirdOverlay.append(
+		title,
+		subtitle,
+		catchItem,
+		missItem,
+		gameTime,
+		restartButton
+	)
 	thirdContainer.append(subtractImg, thirdOverlay)
 	firstOverlay.append(thirdContainer)
 	firstContainer.append(secondContainer, firstOverlay)

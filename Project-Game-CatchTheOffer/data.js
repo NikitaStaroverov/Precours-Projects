@@ -8,6 +8,14 @@ export const settingsData = {
 		{ h: 8, w: 8 },
 	],
 	points_to_win: [20, 30, 40, 60, 80, 100],
+	ms_after_the_catch: [
+		{ max: 200, min: 100 },
+		{ max: 180, min: 80 },
+		{ max: 150, min: 70 },
+		{ max: 130, min: 50 },
+		{ max: 110, min: 30 },
+		{ max: 100, min: 10 },
+	],
 	points_to_lose: [3, 5, 7, 9, 11, 13],
 }
 
@@ -36,6 +44,10 @@ export const data = {
 	},
 	missedOffer: null,
 	catchOffer: null,
+	time: {
+		minutes: null,
+		seconds: null,
+	},
 }
 
 let listener = null
@@ -64,30 +76,12 @@ function runOfferJumpInterval() {
 	offerJumpIntervalId = setInterval(missOffer, 2000)
 }
 
-//ловим оффер
-export function catchOffer() {
-	data.catchPoints++
-
-	if (data.catchPoints === data.settings.winPoints) {
-		data.status = STATUSES.WIN
-		clearInterval(offerJumpIntervalId)
-	} else {
-		setCaughtOffer(data.x, data.y)
-		setTimeout(() => {
-			clearCaughtOffer()
-			listener()
-		}, 300)
-		changeOfferCoordinates()
-		runOfferJumpInterval()
-	}
-	listener()
-}
-
 //начать новую игру если выйграл
 export function start() {
 	data.catchPoints = 0
 	data.missPoints = 0
 	data.status = STATUSES.IN_PROGRESS
+	startTime()
 	changeOfferCoordinates()
 	runOfferJumpInterval()
 	listener()
@@ -101,11 +95,32 @@ export function restart() {
 	listener()
 }
 
+//ловим оффер и не ловим оффер
+export function catchOffer() {
+	data.catchPoints++
+
+	if (data.catchPoints === data.settings.winPoints) {
+		data.status = STATUSES.WIN
+		stopTime()
+		clearInterval(offerJumpIntervalId)
+	} else {
+		setCaughtOffer(data.x, data.y)
+		setTimeout(() => {
+			clearCaughtOffer()
+			listener()
+		}, 300)
+		changeOfferCoordinates()
+		runOfferJumpInterval()
+	}
+	listener()
+}
+
 function missOffer() {
 	data.missPoints++
 
 	if (data.missPoints === data.settings.losePoints) {
 		data.status = STATUSES.LOSE
+		stopTime()
 		clearInterval(offerJumpIntervalId)
 	} else {
 		setMissedOffer(data.x, data.y)
@@ -149,6 +164,24 @@ export function updateWinPoints(newWinPoints) {
 	data.settings.winPoints = newWinPoints
 	console.log(data.settings.winPoints)
 	listener()
+}
+
+// Время
+let gameStartTime
+function startTime() {
+	gameStartTime = Date.now()
+	console.log(gameStartTime)
+	return gameStartTime
+}
+
+function stopTime() {
+	if (data.status === STATUSES.LOSE || data.status === STATUSES.WIN) {
+		const gameStopTime = Date.now() - gameStartTime
+		data.time.minutes = Math.floor(gameStopTime / 60000) // Преобразуем миллисекунды в минуты
+		data.time.seconds = Math.floor((gameStopTime % 60000) / 1000) // Преобразуем остаток в секунды
+		console.log(gameStartTime)
+		console.log(data.time.minutes + ' ' + data.time.seconds)
+	}
 }
 
 export function subscribe(observer) {
