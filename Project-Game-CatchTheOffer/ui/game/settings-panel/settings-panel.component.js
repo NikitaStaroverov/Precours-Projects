@@ -7,11 +7,12 @@ import { MuteMode } from './settings-boxes/mute-mode.component.js'
 
 export function SettingsPanel() {
 	const settingsBar = createElement('div', ['settingsBar'], '')
-	SelectGridSize(settingsBar)
-	SelectPointsToWin(settingsBar)
-	SelectMsAfterTheCatch(settingsBar)
-	SelectPointsToLose(settingsBar)
-	MuteMode(settingsBar)
+
+	settingsBar.append(SelectGridSize())
+	settingsBar.append(SelectPointsToWin())
+	settingsBar.append(SelectMsAfterTheCatch())
+	settingsBar.append(SelectPointsToLose())
+	settingsBar.append(MuteMode())
 
 	return settingsBar
 }

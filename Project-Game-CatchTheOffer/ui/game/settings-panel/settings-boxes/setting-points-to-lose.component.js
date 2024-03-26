@@ -1,7 +1,11 @@
 import { settingsData, updateLosePoints, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
-export function SelectPointsToLose(settingsBar) {
+export function SelectPointsToLose() {
+	const conteinerElement = createElement('div', ['conteiner'], '')
+	const titlelElement = createElement('h5', ['nameSetting'], '')
+	titlelElement.textContent = 'Maximum misses'
+
 	const selectElement = createElement(
 		'select',
 		['select-settings'],
@@ -30,5 +34,6 @@ export function SelectPointsToLose(settingsBar) {
 		updateLosePoints(points)
 	})
 
-	settingsBar.append(selectElement)
+	conteinerElement.append(titlelElement, selectElement)
+	return conteinerElement
 }

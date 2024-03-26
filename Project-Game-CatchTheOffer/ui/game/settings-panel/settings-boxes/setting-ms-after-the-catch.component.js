@@ -1,7 +1,11 @@
 import { settingsData, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
-export function SelectMsAfterTheCatch(settingsBar) {
+export function SelectMsAfterTheCatch() {
+	const conteinerElement = createElement('div', ['conteiner'], '')
+	const titlelElement = createElement('h5', ['nameSetting'], '')
+	titlelElement.textContent = 'ms after the catch'
+
 	const selectElement = createElement('select', ['select-settings'], '')
 
 	const msAfterTheCatchValues = settingsData.ms_after_the_catch
@@ -26,5 +30,6 @@ export function SelectMsAfterTheCatch(settingsBar) {
 		const size = settingsData.grid_size[selectedIndex]
 	})
 
-	settingsBar.append(selectElement)
+	conteinerElement.append(titlelElement, selectElement)
+	return conteinerElement
 }

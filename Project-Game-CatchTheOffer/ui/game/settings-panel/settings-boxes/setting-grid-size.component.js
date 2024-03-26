@@ -1,7 +1,11 @@
 import { settingsData, updateGridSize, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
-export function SelectGridSize(settingsBar) {
+export function SelectGridSize() {
+	const conteinerElement = createElement('div', ['conteiner'], '')
+	const titlelElement = createElement('h5', ['nameSetting'], '')
+	titlelElement.textContent = 'Grid size'
+
 	const selectElement = createElement(
 		'select',
 		['select-settings'],
@@ -32,5 +36,6 @@ export function SelectGridSize(settingsBar) {
 		updateGridSize(size.h, size.w)
 	})
 
-	settingsBar.append(selectElement)
+	conteinerElement.append(titlelElement, selectElement)
+	return conteinerElement
 }

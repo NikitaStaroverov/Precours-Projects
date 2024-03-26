@@ -1,7 +1,11 @@
 import { settingsData, updateWinPoints, data } from '../../../../data.js'
 import { createElement } from '../../../../ui-kit/helper.js'
 
-export function SelectPointsToWin(settingsBar) {
+export function SelectPointsToWin() {
+	const conteinerElement = createElement('div', ['conteiner'], '')
+	const titlelElement = createElement('h5', ['nameSetting'], '')
+	titlelElement.textContent = 'Points to win'
+
 	const selectElement = createElement(
 		'select',
 		['select-settings'],
@@ -30,5 +34,6 @@ export function SelectPointsToWin(settingsBar) {
 		updateWinPoints(points)
 	})
 
-	settingsBar.append(selectElement)
+	conteinerElement.append(titlelElement, selectElement)
+	return conteinerElement
 }

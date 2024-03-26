@@ -180,7 +180,7 @@ function stopTime() {
 		data.time.minutes = Math.floor(gameStopTime / 60000) // Преобразуем миллисекунды в минуты
 		data.time.seconds = Math.floor((gameStopTime % 60000) / 1000) // Преобразуем остаток в секунды
 		console.log(gameStartTime)
-		console.log(data.time.minutes + ' ' + data.time.seconds)
+		console.log(`${data.time.minutes} ${data.time.seconds}`)
 	}
 }
 
